@@ -1,0 +1,18 @@
+# Exemplo de código Python demonstrando o padrão Proxy
+class RealObject:
+    def request(self):
+        print("RealObject: Processando a solicitação.")
+
+class Proxy:
+    def __init__(self, real_object):
+        self.real_object = real_object
+
+    def request(self):
+        print("Proxy: Controlando o acesso antes de encaminhar a solicitação ao RealObject.")
+        # Realize ações adicionais aqui
+        self.real_object.request()
+
+# Uso do Proxy
+real_object = RealObject()
+proxy = Proxy(real_object)
+proxy.request()
